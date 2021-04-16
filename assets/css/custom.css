@@ -1,0 +1,388 @@
+/*
+File Name: 		custom.css
+Description:  You can add your custom CSS here and it will overwrite template styles
+*/
+
+/*# sourceMappingURL=maps/custom.css.map */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+section {
+  min-height: 83vh;
+  overflow: hidden !important;
+}
+
+.mobile-header {
+  display: none;
+}
+
+.arrows {
+  top: 53vh;
+  position: absolute;
+}
+
+.quicks {
+  overflow: visible !important;
+  height: 60vh;
+  min-height: 60vh;
+  background-image: url(https://themes.themicrolex.com/arcaneWP/wp-content/uploads/2020/12/h2.jpg);
+  align-items: inherit !important;
+  margin-top: 160px;
+}
+
+.servers {
+  background-color: #191e26;
+  background-image: url(../img/bg-matches-01.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 4em;
+}
+
+.render {
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.sub-head {
+  padding-left: 10em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.sub-head h2 {
+  color: inherit;
+}
+
+.sub-head p {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.sub-head .btn {
+  margin-top: 25px;
+  background: #a3ff12;
+  color: #000;
+}
+
+.divider {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 3px;
+  width: 120px;
+}
+
+.sv-list {
+  color: #fff;
+  justify-content: center;
+}
+
+.row .player-info-detail--icon {
+  margin-bottom: 40px;
+}
+
+.player-info-detail__link,
+.player-info-detail__label {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.posts {
+  background: #1f2231c4;
+  min-height: 40vh;
+  justify-content: center;
+  display: flex;
+  padding: 4em;
+}
+
+.ncr-posts-list .ncr-posts-list__item {
+  width: 30%;
+  min-width: 220px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.ncr-posts-list.ncr-posts-list--thumb-on-bg
+  .ncr-posts-list__item.has-post-thumbnail {
+  align-items: center;
+  margin: auto;
+  display: flex;
+}
+
+.post {
+  margin-top: 20px !important;
+}
+
+.render-img {
+  height: 680px;
+  bottom: 0;
+}
+
+.player-info-detail__link {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.player-info-detail__link:hover {
+  color: #191e26;
+}
+
+.cutsection {
+  min-height: 40vh;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  background-image: url(https://themes.themicrolex.com/arcaneWP/wp-content/uploads/2020/12/bg2home.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.cut-shape-top {
+  top: -1px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  direction: ltr;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.cut-shape-top svg {
+  height: 36px;
+  display: block;
+  width: calc(100% + 1.3px);
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.cutsection h2 {
+  color: #fff;
+}
+
+.aboutsec {
+  background: #13141a;
+  color: #fff;
+  text-align: center;
+  min-height: 30vh;
+}
+.site-content__inner {
+  margin: auto;
+  padding: 60px 24px;
+  width: 60%;
+  min-height: 30vh;
+}
+
+.counter-plus {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.team-section {
+  min-height: 50vh;
+  padding: 6em 20em;
+  background: #13141a;
+}
+
+.team-section .ncr-posts-list .ncr-posts-list__item {
+  height: 220px;
+  width: 220px;
+}
+
+.team-section .post__thumbnail {
+  border-bottom: 2px solid #a3ff12;
+}
+
+.post__body {
+  width: 100%;
+}
+
+.partners {
+  display: block !important;
+  padding: 2em 0;
+  background: #13141a;
+  min-height: 20vh;
+  overflow: hidden !important;
+}
+
+.partners .clients {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.joinus {
+  background-image: url(https://themes.themicrolex.com/arcaneWP/wp-content/uploads/2020/12/h2.jpg);
+  min-height: 20vh;
+  display: block !important;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.footer {
+  background: #000;
+  color: white;
+  text-align: left;
+  min-height: 20vh;
+  padding-bottom: 0;
+}
+.footer .links ul {
+  list-style-type: none;
+}
+.footer .links li a {
+  color: white;
+  transition: color 0.2s;
+}
+.footer .links li a:hover {
+  color: #a3ff12;
+  text-decoration: none;
+}
+.footer .about-company i {
+  font-size: 25px;
+}
+.footer .about-company a {
+  transition: color 0.2s;
+}
+
+.footer .location i {
+  font-size: 18px;
+}
+.footer .copyright p {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer h3,
+.footer h4 {
+  color: #fff;
+}
+
+.copyright {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .sub-head h2 {
+    font-size: 3.5em;
+  }
+
+  .sub-head p {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .sub-head {
+    padding: 40px;
+  }
+
+  .render {
+    display: none;
+  }
+
+  .quicks {
+    height: auto;
+    min-height: 20vh;
+  }
+
+  .cut-head {
+    padding: 8em 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .team-section {
+    padding: 6em 2em;
+  }
+
+  .quicks {
+    margin-top: 20px;
+  }
+
+  .lander {
+    min-height: 50vh;
+  }
+
+  .site-content__center {
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .site-layout--landing h1,
+  .site-layout--landing .h1 {
+    font-size: 5em;
+  }
+
+  .site-layout--landing h1 .subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .col-4 {
+    max-width: 50%;
+  }
+  .player-info-detail__link {
+    font-size: 12px;
+  }
+
+  .servers {
+    padding: 1.5em;
+  }
+
+  .item img {
+    max-height: 100px;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .mobile-header {
+    display: inherit;
+  }
+  .desk-header {
+    display: none;
+  }
+}
+
+
+.back-top {
+  font-size: 2em;
+  line-height: 0px;
+  background: #a3ff12;
+  padding: 0px 5px;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
