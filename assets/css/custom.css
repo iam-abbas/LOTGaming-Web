@@ -417,3 +417,7 @@ section {
 .offline {
   background: #bf1e1e !important;
 }
+
+.social-menu--landing li a i {
+  color: #fff !important;
+}
