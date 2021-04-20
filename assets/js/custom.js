@@ -9,3 +9,19 @@ $(window).scroll(function () {
         backTop.hide()
     }
 });
+
+
+function copyConnect(ip) {
+    const el = document.createElement('textarea');
+    el.value = `connect ${ip}`;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert("Copied to clipboard");
+
+}
+
+$(document).ready(function () {
+    $("#serverscontent").load("servers.php");
+});

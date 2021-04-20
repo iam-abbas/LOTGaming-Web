@@ -1,86 +1,3 @@
-<?php
-function getStatus($ip)
-{
-	$json = file_get_contents('http://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001?addr=' . $ip . '&format=json'); // this WILL do an http request for you
-	$data = json_decode($json, true);
-	if (count($data["response"]["servers"]) > 0) {
-		return 1;
-	} else {
-		return 0;
-	}
-}
-
-$servers = [
-	[
-		"name" => "DM FFA MUMBAI",
-		"ip" => "13.126.207.140:27016",
-		"stats" => "http://lot.gameme.com/players/csgo"
-	],
-	[
-		"name" => "DM FFA SINGAPORE",
-		"ip" => "18.138.207.58:27015",
-		"stats" => ""
-	],
-	[
-		"name" => "DM FFA PISTOL IN",
-		"ip" => "13.234.246.233:27015",
-		"stats" => "https://lotgaming.xyz/stats/pistol/leaderboards.php"
-	],
-	[
-		"name" => "DM FFA PISTOL SG",
-		"ip" => "54.169.58.125:27015",
-		"stats" => ""
-	],
-	[
-		"name" => "RETAKE MUMBAI #1",
-		"ip" => "35.154.26.9:27015",
-		"stats" => "http://lot.gameme.com/players/csgo6"
-	],
-	[
-		"name" => "RETAKE MUMBAI #2",
-		"ip" => "13.127.151.212:27015",
-		"stats" => "http://lot.gameme.com/players/csgo4"
-	],
-	[
-		"name" => "RETAKE DELHI",
-		"ip" => "13.126.207.141:27016",
-		"stats" => "http://lot.gameme.com/players/csgo8"
-	],
-	[
-		"name" => "RETAKE BANGALORE",
-		"ip" => "139.59.45.50:10008",
-		"stats" => "http://lot.gameme.com/players/csgo2"
-	],
-	[
-		"name" => "LOTxMESL HUB RETAKE",
-		"ip" => "13.234.107.47:27015",
-		"stats" => ""
-	],
-	[
-		"name" => "EXECUTE MUMBAI #1",
-		"ip" => "13.235.72.160:27015",
-		"stats" => "http://lot.gameme.com/players/csgo3"
-	],
-	[
-		"name" => "EXECUTE MUMBAI #2",
-		"ip" => "13.235.183.140:27015",
-		"stats" => ""
-	],
-	[
-		"name" => "AWP CASUAL MUMBAI",
-		"ip" => "15.206.24.33:27015",
-		"stats" => "http://lot.gameme.com/players/csgo5"
-	],
-	[
-		"name" => "1V1 ARENA MUMBAI",
-		"ip" => "13.232.146.33:27000",
-		"stats" => "http://lot.gameme.com/players/csgo7"
-	]
-];
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -90,9 +7,8 @@ $servers = [
 	<title>L.O.T Gaming</title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description" content="eSports Team &amp; Gaming HTML Template" />
-	<meta name="author" content="Dan Fisher" />
-	<meta name="keywords" content="esports team news HTML template" />
+	<meta name="description" content="A CS:GO community that specifies on custom 128 Tick competitive servers so you can both have fun, practice and play with a big player base!" />
+	<meta name="keywords" content="CSGO Community, 128 Tick Servers, Indian PUG" />
 
 	<!-- Favicons
 	================================================== -->
@@ -111,6 +27,8 @@ $servers = [
 	<!-- CSS
 	================================================== -->
 	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 	<link href="assets/vendor/magnific-popup/css/magnific-popup.css" rel="stylesheet" />
 	<link href="assets/vendor/slick/css/slick.css" rel="stylesheet" />
 	<link href="assets/vendor/nanoscroller/css/nanoscroller.css" rel="stylesheet" />
@@ -135,7 +53,7 @@ $servers = [
 						<a href="#subscriptions">Subscriptions</a>
 						<ul class="main-nav__sub">
 							<li class=""><a href="#">Sub 1</a></li>
-							<li class=""><a href="#">Sub 2</a></li>
+							<li class=""><a href="#">PUG Server <small class="color-primary pl-2">WE ARE OUT OF STOCK</small></a></li>
 						</ul>
 					</li>
 					<li class=""><a href="#servers">Servers</a></li>
@@ -382,49 +300,17 @@ $servers = [
 				</div>
 
 
-				<div class="row sv-list">
-
-
-					<?php
-
-					foreach ($servers as $sv) {
-						echo '
-					<div class="col-6 col-md-6">
-						<div class="player-info-detail player-info-detail--icon">
-
-							<div class="player-info-detail__body">
-								<div class="row">
-									<div class="col-6 server-left">
-										<a href="steam://connect/'.$sv['ip'].'">
-											<div class="player-info-detail__title">' . $sv['name'] . '</div>
-											</a>
-											<div class="player-info-detail__label color-primary">' . $sv['ip'] . '
-											</div>
-										
-									</div>
-									<div class="col-6 server-right">
-									';
-
-						if (getStatus($sv['ip']) == 1) {
-							echo '<div class="status btn btn-sm btn-primary">ONLINE</div>';
-						} else {
-							echo '<div class="status offline btn btn-sm btn-primary">OFFLINE</div>';
-						}
-
-
-						echo '
-										<a href="' . $sv['stats'] . '" class="player-info-detail__link btn btn-sm btn-primary status-link" tabindex="-1">VIEW STATS</a>
-									</div>
-								</div>
+				<div class="row sv-list" id="serverscontent">
+					<div id="js-preloader" class="preloader">
+						<div class="preloader-inner fadeInUp">
+							<div id="server-loader">
+								<div class="pong-loader"></div>
+								<svg role="img" class="df-icon df-icon--preloader-arcade">
+									<use xlink:href="assets/img/buttons.svg#preloader-arcade" />
+								</svg>
 							</div>
-
 						</div>
-					</div>';
-					}
-					?>
-
-
-
+					</div>
 
 				</div>
 		</section>
@@ -795,6 +681,8 @@ $servers = [
 	<!-- Template JS -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
 	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 	<script src="assets/js/init.js"></script>
 	<script src="assets/js/custom.js"></script>
