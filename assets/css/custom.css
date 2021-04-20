@@ -422,3 +422,7 @@ section {
   text-align: center;
   margin: 30px auto;
 }
+
+.social-menu--landing li a i {
+  color: #fff !important;
+}
