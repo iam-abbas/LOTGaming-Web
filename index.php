@@ -1,3 +1,86 @@
+<?php
+function getStatus($ip)
+{
+	$json = file_get_contents('http://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001?addr=' . $ip . '&format=json'); // this WILL do an http request for you
+	$data = json_decode($json, true);
+	if (count($data["response"]["servers"]) > 0) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+$servers = [
+	[
+		"name" => "DM FFA MUMBAI",
+		"ip" => "13.126.207.140:27016",
+		"stats" => "http://lot.gameme.com/players/csgo"
+	],
+	[
+		"name" => "DM FFA SINGAPORE",
+		"ip" => "18.138.207.58:27015",
+		"stats" => ""
+	],
+	[
+		"name" => "DM FFA PISTOL IN",
+		"ip" => "13.234.246.233:27015",
+		"stats" => "https://lotgaming.xyz/stats/pistol/leaderboards.php"
+	],
+	[
+		"name" => "DM FFA PISTOL SG",
+		"ip" => "54.169.58.125:27015",
+		"stats" => ""
+	],
+	[
+		"name" => "RETAKE MUMBAI #1",
+		"ip" => "35.154.26.9:27015",
+		"stats" => "http://lot.gameme.com/players/csgo6"
+	],
+	[
+		"name" => "RETAKE MUMBAI #2",
+		"ip" => "13.127.151.212:27015",
+		"stats" => "http://lot.gameme.com/players/csgo4"
+	],
+	[
+		"name" => "RETAKE DELHI",
+		"ip" => "13.126.207.141:27016",
+		"stats" => "http://lot.gameme.com/players/csgo8"
+	],
+	[
+		"name" => "RETAKE BANGALORE",
+		"ip" => "139.59.45.50:10008",
+		"stats" => "http://lot.gameme.com/players/csgo2"
+	],
+	[
+		"name" => "LOTxMESL HUB RETAKE",
+		"ip" => "13.234.107.47:27015",
+		"stats" => ""
+	],
+	[
+		"name" => "EXECUTE MUMBAI #1",
+		"ip" => "13.235.72.160:27015",
+		"stats" => "http://lot.gameme.com/players/csgo3"
+	],
+	[
+		"name" => "EXECUTE MUMBAI #2",
+		"ip" => "13.235.183.140:27015",
+		"stats" => ""
+	],
+	[
+		"name" => "AWP CASUAL MUMBAI",
+		"ip" => "15.206.24.33:27015",
+		"stats" => "http://lot.gameme.com/players/csgo5"
+	],
+	[
+		"name" => "1V1 ARENA MUMBAI",
+		"ip" => "13.232.146.33:27000",
+		"stats" => "http://lot.gameme.com/players/csgo7"
+	]
+];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -85,8 +168,7 @@
 
 			<!-- Logo - Image Based -->
 			<div class="header-logo header-logo--img" style="max-width: 220px;">
-				<a href="#"><img src="https://i.imgur.com/KrDu2x0.png"
-						alt="LOTGaming"></a>
+				<a href="#"><img src="https://i.imgur.com/KrDu2x0.png" alt="LOTGaming"></a>
 			</div>
 			<!-- Logo - Image Based / End -->
 
@@ -157,8 +239,7 @@
 				<!-- Video Highlight / End -->
 
 				<!-- Video Clip -->
-				<video poster="assets/img/bg-texture-05.jpg"
-					class="video-full-bg__clip video-full-bg__clip--black-white" playsinline autoplay muted loop>
+				<video poster="assets/img/bg-texture-05.jpg" class="video-full-bg__clip video-full-bg__clip--black-white" playsinline autoplay muted loop>
 					<source src="assets/video/video-clip.webm" type="video/webm" />
 					<source src="assets/video/video-clip.mp4" type="video/mp4" />
 				</video>
@@ -208,8 +289,7 @@
 				</div>
 			</div>
 			<div class="col render">
-				<img class="render-img" src="https://i.imgur.com/3aAIoqh.png" class="attachment-full size-full" alt=""
-					loading="lazy">
+				<img class="render-img" src="https://i.imgur.com/3aAIoqh.png" class="attachment-full size-full" alt="" loading="lazy">
 			</div>
 		</section>
 		<section class="site-content site-content--center page posts" id="subscriptions">
@@ -225,8 +305,7 @@
 						<ul class="row ncr-posts-list ncr-posts-list--thumb-on-bg list-unstyled">
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://www.csgowallpapers.com/assets/images/thumbnails/csgowallpaper_906670938517_1611074074_278068613702.jpg"
-										alt="">
+									<img src="https://www.csgowallpapers.com/assets/images/thumbnails/csgowallpaper_906670938517_1611074074_278068613702.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -246,8 +325,7 @@
 							</li>
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d52aa865126337.5e96f6e7297f3.jpg"
-										alt="">
+									<img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d52aa865126337.5e96f6e7297f3.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -267,8 +345,7 @@
 							</li>
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://dmarket.com/blog/best-csgo-wallpapers/csgowallpaper_huaf37de188377a5babe73dd0df1960591_210835_1920x1080_resize_q75_lanczos.jpg"
-										alt="">
+									<img src="https://dmarket.com/blog/best-csgo-wallpapers/csgowallpaper_huaf37de188377a5babe73dd0df1960591_210835_1920x1080_resize_q75_lanczos.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -307,169 +384,49 @@
 
 				<div class="row sv-list">
 
-					<div class="col-4 col-md-4">
+
+					<?php
+
+					foreach ($servers as $sv) {
+						echo '
+					<div class="col-6 col-md-6">
 						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">DM FFA MUMBAI</div>
-									<div class="player-info-detail__label color-primary">13.126.207.140:27016</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
-								</div>
-							</a>
-						</div>
-					</div>
+
+							<div class="player-info-detail__body">
+								<div class="row">
+									<div class="col-6 server-left">
+										<a href="steam://connect/'.$sv['ip'].'">
+											<div class="player-info-detail__title">' . $sv['name'] . '</div>
+											</a>
+											<div class="player-info-detail__label color-primary">' . $sv['ip'] . '
+											</div>
+										
+									</div>
+									<div class="col-6 server-right">
+									';
+
+						if (getStatus($sv['ip']) == 1) {
+							echo '<div class="status btn btn-sm btn-primary">ONLINE</div>';
+						} else {
+							echo '<div class="status offline btn btn-sm btn-primary">OFFLINE</div>';
+						}
 
 
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">DM FFA PISTOL IN</div>
-									<div class="player-info-detail__label color-primary">13.234.246.233:27015</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
+						echo '
+										<a href="' . $sv['stats'] . '" class="player-info-detail__link btn btn-sm btn-primary status-link" tabindex="-1">VIEW STATS</a>
+									</div>
 								</div>
-							</a>
-						</div>
-					</div>
+							</div>
 
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">RETAKE MUMBAI #1</div>
-									<div class="player-info-detail__label color-primary">35.154.26.9:27015</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
+						</div>
+					</div>';
+					}
+					?>
 
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">RETAKE MUMBAI #2</div>
-									<div class="player-info-detail__label color-primary">13.127.151.212:27015</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
 
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">RETAKE DELHI</div>
-									<div class="player-info-detail__label color-primary">DOWN Due To Host issue</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">RETAKE BANGALORE</div>
-									<div class="player-info-detail__label color-primary">139.59.45.50:10008</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
-								</div>
-							</a>
-						</div>
-					</div>
 
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">EXECUTE MUMBAI #1</div>
-									<div class="player-info-detail__label color-primary">13.235.72.160:27015</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
-								</div>
-							</a>
-						</div>
-					</div>
 
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">AWP CASUAL MUMBAI</div>
-									<div class="player-info-detail__label color-primary">15.206.24.33:27015</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
-
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">1V1 ARENA MUMBAI</div>
-									<div class="player-info-detail__label color-primary">13.232.146.33:27000</div>
-									<a href="#" class="player-info-detail__link btn btn-sm btn-primary"
-										tabindex="-1">VIEW STATS/RANKS</a>
-
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">DM FFA SINGAPORE</div>
-									<div class="player-info-detail__label color-primary">18.138.207.58:27015</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">DM FFA PISTOL SG</div>
-									<div class="player-info-detail__label color-primary">54.169.58.125:27015</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">LOT<span class="color-primary"
-											style="text-transform: lowercase;">x</span>MESL HUB RETAKE</div>
-									<div class="player-info-detail__label color-primary">13.234.107.47:27015</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-4 col-md-4">
-						<div class="player-info-detail player-info-detail--icon">
-							<a href="#">
-								<div class="player-info-detail__body">
-									<div class="player-info-detail__title">EXECUTE MUMBAI #2</div>
-									<div class="player-info-detail__label color-primary">13.235.183.140:27015</div>
-								</div>
-							</a>
-						</div>
-					</div>
 				</div>
-
-
-
-			</div>
 		</section>
 		<section class="site-content site-content--center page aboutsec" id="wrapper">
 			<div class="site-content__inner">
@@ -553,8 +510,7 @@
 						<ul class="row ncr-posts-list ncr-posts-list--thumb-on-bg list-unstyled">
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://www.csgowallpapers.com/assets/images/thumbnails/csgowallpaper_906670938517_1611074074_278068613702.jpg"
-										alt="">
+									<img src="https://www.csgowallpapers.com/assets/images/thumbnails/csgowallpaper_906670938517_1611074074_278068613702.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -563,8 +519,7 @@
 												<a href="#">Founder</a>
 											</li>
 										</ul>
-										<h2 class="post__title h6"><a href="#"
-												class="stretched-link">Kancha</a>
+										<h2 class="post__title h6"><a href="#" class="stretched-link">Kancha</a>
 										</h2>
 
 									</div>
@@ -572,8 +527,7 @@
 							</li>
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d52aa865126337.5e96f6e7297f3.jpg"
-										alt="">
+									<img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d52aa865126337.5e96f6e7297f3.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -582,8 +536,8 @@
 												<a href="#">Head Admin</a>
 											</li>
 										</ul>
-										<h2 class="post__title h6"><a href="#"
-												class="stretched-link">F.U.R.I.O.U.S</a></h2>
+										<h2 class="post__title h6"><a href="#" class="stretched-link">F.U.R.I.O.U.S</a>
+										</h2>
 
 									</div>
 								</div>
@@ -591,8 +545,7 @@
 
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://dmarket.com/blog/best-csgo-wallpapers/csgowallpaper_huaf37de188377a5babe73dd0df1960591_210835_1920x1080_resize_q75_lanczos.jpg"
-										alt="">
+									<img src="https://dmarket.com/blog/best-csgo-wallpapers/csgowallpaper_huaf37de188377a5babe73dd0df1960591_210835_1920x1080_resize_q75_lanczos.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -601,8 +554,7 @@
 												<a href="#">Head Admin</a>
 											</li>
 										</ul>
-										<h2 class="post__title h6"><a href="#"
-												class="stretched-link">iNFy</a></h2>
+										<h2 class="post__title h6"><a href="#" class="stretched-link">iNFy</a></h2>
 
 									</div>
 								</div>
@@ -610,8 +562,7 @@
 
 							<li class="ncr-posts-list__item has-post-thumbnail post">
 								<div class="post__thumbnail">
-									<img src="https://dmarket.com/blog/best-csgo-wallpapers/csgowallpaper_huaf37de188377a5babe73dd0df1960591_210835_1920x1080_resize_q75_lanczos.jpg"
-										alt="">
+									<img src="https://dmarket.com/blog/best-csgo-wallpapers/csgowallpaper_huaf37de188377a5babe73dd0df1960591_210835_1920x1080_resize_q75_lanczos.jpg" alt="">
 								</div>
 								<div class="post__body">
 									<div class="post__header">
@@ -620,8 +571,8 @@
 												<a href="#">Head Admin</a>
 											</li>
 										</ul>
-										<h2 class="post__title h6"><a href="#"
-												class="stretched-link">Assassin 47</a></h2>
+										<h2 class="post__title h6"><a href="#" class="stretched-link">Assassin 47</a>
+										</h2>
 
 									</div>
 								</div>
@@ -707,8 +658,7 @@
 							<p class="pr-5 text-white-50">A CS:GO community that specifies on custom 128 Tick
 								competitive servers so you can both have fun, practice and play with a big player base!
 							</p>
-							<p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i
-										class="fa fa-linkedin-square"></i></a></p>
+							<p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
 						</div>
 						<div class="col-lg-3 col-xs-12 links">
 							<h4 class="mt-lg-0 mt-sm-3">Links</h4>
@@ -717,8 +667,7 @@
 								<li><i class="ion-ios-arrow-right"></i> <a href="#servers">Servers</a></li>
 								<li><i class="ion-ios-arrow-right"></i> <a href="https://lotgaming.xyz/ban/">Ban
 										List</a></li>
-								<li><i class="ion-ios-arrow-right"></i> <a
-										href="https://lotgaming.xyz/terms-and-conditions.html">Terms and Conditions</a>
+								<li><i class="ion-ios-arrow-right"></i> <a href="https://lotgaming.xyz/terms-and-conditions.html">Terms and Conditions</a>
 								</li>
 							</ul>
 						</div>
@@ -733,8 +682,7 @@
 					<div class="row mt-5">
 						<div class="col copyright">
 							<p class="mt-2" style="padding-top: 20px;"><span class="text-white-50 pt-2">© 2021
-									Copyright. Designed and Developed by <a
-										target="_blank" style="color: cyan;" href="https://abbasmj.com">Abbas</a></span>
+									Copyright. Designed and Developed by <a target="_blank" style="color: cyan;" href="https://abbasmj.com">Abbas</a></span>
 							</p>
 						</div>
 					</div>
@@ -759,8 +707,7 @@
 
 				<li class="mobile-bar-item"><a class="mobile-bar-item__header" href="#">Home</a></li>
 				<li class="mobile-bar-item mobile-bar-item--info">
-					<a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#mobile_collapse_1"
-						role="button" aria-expanded="false" aria-controls="mobile_collapse_1">Subscriptions
+					<a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#mobile_collapse_1" role="button" aria-expanded="false" aria-controls="mobile_collapse_1">Subscriptions
 
 						<span class="main-nav__toggle">&nbsp;</span>
 					</a>
@@ -846,8 +793,8 @@
 	<!-- Vendor JS -->
 
 	<!-- Template JS -->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+	</script>
 
 	<script src="assets/js/init.js"></script>
 	<script src="assets/js/custom.js"></script>
